@@ -365,18 +365,16 @@
       
         
           
-            <h1 id="本文详细介绍Hero-github搭建个人博客的方法和注意事项。"><a href="#本文详细介绍Hero-github搭建个人博客的方法和注意事项。" class="headerlink" title="本文详细介绍Hero+github搭建个人博客的方法和注意事项。"></a>本文详细介绍Hero+github搭建个人博客的方法和注意事项。</h1><ol>
-<li><strong>环境配置准备</strong></li>
-</ol>
+            <h1 id="本文详细介绍Hero-github搭建个人博客的方法和注意事项。"><a href="#本文详细介绍Hero-github搭建个人博客的方法和注意事项。" class="headerlink" title="本文详细介绍Hero+github搭建个人博客的方法和注意事项。"></a>本文详细介绍Hero+github搭建个人博客的方法和注意事项。</h1><p><strong>环境配置准备</strong></p>
 <p>下载安装<a href="https://nodejs.org/en/download/" title="Node.js" target="_blank" rel="external">Node.js</a>和<a href="https://pan.baidu.com/s/1kU5OCOB#list/path=%2Fpub%2Fgit" target="_blank" rel="external">Git</a>，选择安装系统对应的版本。安装完毕后，在cmd（命令行）中输入<br>node –version<br>git –version<br><img src="/2017/10/22/Hero-github创建个人博客/Node-Git.gif" alt="正确安装时的显示"><br>若像上图一样显示出Node.js和Git的版本，则安装正确！</p>
-<ol>
-<li><strong>申请GitHub账号</strong></li>
-</ol>
-<p>在GitHub官网注册一个账号，并且新建一个仓库，仓库名<strong>一定</strong>要是yourname.github.io，其中yourname是你的用户名。同时，在命令行中执行<br>ssh-keygen -t rsa -C “youremail”（youremail为你注册的邮箱）一直按“Enter”生成密钥。将用户目录下的.ssh子目录中的id_rsa PUB文件内容<br>复制到GitHub账号“seting”下的“SSH GPL”,添加ssh密钥。</p>
-<ol>
-<li><strong>下载安装Hero并配置</strong></li>
-</ol>
-<p>由于npm容易被墙，推荐使用cnpm。在cmd执行以下命令下载安装<br>$ npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a><br>完成后即可利用cnpm下载安装Hero，首先新建一个文件夹作为博客根目录，比如myblog<br>cd命令切换到myblog目录中执行命令<br>cnpm install -g hexo-cli<br>hexo init<br>cnpm install</p>
+<p><strong>申请GitHub账号</strong></p>
+<p>在GitHub官网注册一个账号，并且新建一个仓库，仓库名<strong>一定</strong>要是yourname.github.io，其中yourname是你的用户名。同时，在命令行中执行<br>ssh-keygen -t rsa -C “youremail”（youremail为你注册的邮箱）一直按“Enter”生成密钥。将用户目录下的.ssh子目录中的id_rsa PUB文件内容<br>复制到GitHub账号“seting”下的“SSH GPL”,<strong>添加ssh密钥</strong>。还要执行命令ssh -T git@github.com<strong>验证</strong>是否添加密钥成功。最后执行命令<br>git config –global user.name “yourname”<br>git config –global user.email “youremail” (yourname youremail 为github账号名字和邮箱)配置git用户和邮箱。</p>
+<p><strong>下载安装Hero并配置</strong></p>
+<p>由于npm容易被墙，推荐使用cnpm。在cmd执行以下命令下载安装<br>$ npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a><br>完成后即可利用cnpm下载安装Hero，首先新建一个文件夹作为博客根目录，比如myblog<br>cd命令切换到myblog目录中执行命令<br>cnpm install -g hexo-cli<br>cnpm install hexo –save<br>cnpm install hexo-deployer-git –save</p>
+<p>hexo init<br>cnpm install</p>
+<p>执行完毕后myblog目录下就有_config.yml配置文件，在该文件最后有deploy需要我们手动配置，配置如下<br>deploy:<br>  type: git<br>  repo: git@github.com:Youfaner/Youfaner.github.io.git(Youfaner改为你github账号的名字)<br>  branch: master</p>
+<p><strong>Hero新建文章并发布</strong></p>
+<p>hero clean 清空缓存<br>hero new “title” 新建文章<br>hero d -g 或者 hero g -d 即可生成博客并发布<br>详细操作参考Hero官网</p>
 
           
         
